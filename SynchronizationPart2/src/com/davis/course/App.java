@@ -7,7 +7,7 @@ public class App {
 		final Counter counter = new Counter();
 		
 		for (int i = 0; i < 100; i++) {
-			final Thread thread = (Thread) new MyThread(counter);
+			final Thread thread = new MyThread(counter);
 			thread.start();
 		}	
 	}

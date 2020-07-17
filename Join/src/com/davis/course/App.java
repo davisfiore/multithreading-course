@@ -4,7 +4,7 @@ public class App {
 
 	public static void main(String[] args) throws InterruptedException {
 
-		final Thread thread1 = (Thread) new MyThread();
+		final Thread thread1 = new MyThread();
 		thread1.start();
 		
 		thread1.join();
