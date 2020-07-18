@@ -1,7 +1,7 @@
 package com.davis.course;
 
 public class Counter {
-    private int count = 0;
+    private int count;
 
     public synchronized void increment() {
         count++;
