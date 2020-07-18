@@ -11,16 +11,17 @@ public class MyThread extends Thread {
 	@Override
 	public void run() {
 		while(true) {
-			try {
-				synchronized(counter) {
-					counter.increment();
+			synchronized(counter) {
+				
+				counter.increment();
+				
+				try {
 					Thread.sleep(100);
-					counter.decrement();
-				}
-				System.out.println("Count = " + counter.get());
-			} catch (InterruptedException e) {
-				e.printStackTrace();
+				} catch (InterruptedException e) {e.printStackTrace();}
+				
+				counter.decrement();
 			}
+			System.out.println("Count = " + counter.get());
 		}
 	}	
 }
