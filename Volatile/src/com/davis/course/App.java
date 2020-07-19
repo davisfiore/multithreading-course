@@ -2,8 +2,8 @@ package com.davis.course;
 
 public class App {
 	
-	static volatile int counter = 0;
-	//static int counter = 0;
+	static volatile int counter;
+	//static int counter;
 
     public static void main(String[] args) {
     

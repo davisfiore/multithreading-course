@@ -12,9 +12,7 @@ public class WriteThread extends Thread {
             
             try {
                 Thread.sleep(600);
-            } catch (InterruptedException e) { 
-            	e.printStackTrace(); 	
-            }
+            } catch (InterruptedException e) {e.printStackTrace();}
         }
     }
 
