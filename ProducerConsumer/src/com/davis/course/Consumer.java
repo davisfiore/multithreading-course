@@ -17,8 +17,6 @@ public class Consumer implements Runnable {
 					message.wait();
 				System.out.println("Received message : " + message.get());
 			}
-		} catch (InterruptedException e) {
-			System.out.println(e.getMessage());
-		}
+		} catch (InterruptedException e) {e.printStackTrace();}
 	}
 }

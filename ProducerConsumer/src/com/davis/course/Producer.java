@@ -17,8 +17,6 @@ public class Producer implements Runnable {
 				message.set("Produced something!");
 				message.notify();
 			}
-		} catch (InterruptedException e) {
-			System.out.println(e.getMessage());
-		}
+		} catch (InterruptedException e) {e.printStackTrace();}
 	}
 }
