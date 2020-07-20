@@ -13,9 +13,10 @@ public class Consumer implements Runnable {
 		
 		try {
 			synchronized (message) {
-				if (message.get() == null)
+				if (message.get() == null) {
 					message.wait();
-				System.out.println("Received message : " + message.get());
+					System.out.println("Received message : " + message.get());
+				}
 			}
 		} catch (InterruptedException e) {e.printStackTrace();}
 	}
