@@ -6,9 +6,7 @@ public class MyThread extends Thread {
 	public void run() {
 		try {
 			Thread.sleep(1500);
-		} catch (InterruptedException e) {
-			e.printStackTrace();
-		}
+		} catch (InterruptedException e) {e.printStackTrace();}
 		System.out.println("Exiting thread...");
 	}
 }
