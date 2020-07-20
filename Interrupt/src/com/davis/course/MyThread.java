@@ -10,5 +10,6 @@ public class MyThread extends Thread {
 			System.out.println("Thread interrupted!");
 			return;
 		}
+		System.out.println("Not passing here!");
 	}
 }
