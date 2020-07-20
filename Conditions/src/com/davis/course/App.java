@@ -15,9 +15,7 @@ public class App {
 					container.put("First");
 					container.put("Second");
 					container.put("Third");
-				} catch (InterruptedException e) {
-					e.printStackTrace();
-				}
+				} catch (InterruptedException e) {e.printStackTrace();}
 			}    		
 		);
 		
@@ -26,9 +24,7 @@ public class App {
 					container.take();
 					container.take();
 					container.take();		
-				} catch (InterruptedException e) {
-					e.printStackTrace();
-				}
+				} catch (InterruptedException e) {e.printStackTrace();}
 			}    		
 		);
 	}

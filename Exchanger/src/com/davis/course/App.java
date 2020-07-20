@@ -19,9 +19,7 @@ public class App {
 						Thread.currentThread().getName());
 					System.out.println(Thread.currentThread().getName() + 
 							" has received a message from " + recv);
-				} catch (InterruptedException e) {
-					e.printStackTrace();
-				}
+				} catch (InterruptedException e) {e.printStackTrace();}
 			});
 		
 		executorService.shutdown();

@@ -26,9 +26,7 @@ public class App {
 					counter.decrementAndGet();
 					sem.release();
 		
-				} catch (InterruptedException e) {
-					e.printStackTrace();
-				}
+				} catch (InterruptedException e) {e.printStackTrace();}
 			});
 		
 		executorService.shutdown();

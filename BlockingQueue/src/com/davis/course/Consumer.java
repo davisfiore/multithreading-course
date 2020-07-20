@@ -18,8 +18,6 @@ public class Consumer implements Runnable {
 				final String message = queue.take();
 				System.out.println("Received: " + message);
 			}
-		} catch (InterruptedException e) {
-			e.printStackTrace();
-		}
+		} catch (InterruptedException e) {e.printStackTrace();}
 	}
 }
