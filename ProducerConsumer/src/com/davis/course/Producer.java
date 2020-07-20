@@ -12,8 +12,8 @@ public class Producer implements Runnable {
 	public void run() {
 		
 		try {
+			Thread.sleep(2000);
 			synchronized (message) {
-				Thread.sleep(2000);
 				message.set("Produced something!");
 				message.notify();
 			}
