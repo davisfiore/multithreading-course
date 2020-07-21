@@ -23,7 +23,7 @@ public final class Product {
 		return this.code;
 	}
 
-	public List<String> getIngredientIds() {
+	public List<String> getIngredients() {
 		return new ArrayList<String>(ingredients);
 	}
 }

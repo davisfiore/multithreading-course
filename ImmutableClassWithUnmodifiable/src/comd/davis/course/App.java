@@ -16,12 +16,12 @@ public class App {
 		
 		final Product product = new Product("Pizza", 123, ingredients);
 		
-		System.out.println("The ingredients are " + product.getIngredientIds());
+		System.out.println("The ingredients are " + product.getIngredients());
 		
 		// I try to change the ingredients
-		ingredients.add("chilli");
+		product.getIngredients().add("chilli");
 		
 		// The pizza is safe... because it's immutable!!!
-		System.out.println("After attempted tampering, the ingredients are " + product.getIngredientIds());	
+		System.out.println("After attempted tampering, the ingredients are " + product.getIngredients());	
 	}
 }
