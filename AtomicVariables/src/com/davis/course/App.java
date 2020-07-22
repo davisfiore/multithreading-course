@@ -9,12 +9,12 @@ public class App {
 
     	final AtomicInteger atomicInt = new AtomicInteger(0);
  
-    	System.out.println("Increment atomically: " + atomicInt.incrementAndGet());
-    	System.out.println("Increment atomically: " + atomicInt.addAndGet(10));
+    	System.out.println("Increment: " + atomicInt.incrementAndGet());
+    	System.out.println("Add: " + atomicInt.addAndGet(10));
 
     	final AtomicReference<String> atomicReference = new AtomicReference<>("boss");
 
     	boolean changed = atomicReference.compareAndSet("boss", "Boss");
-    	System.out.println("exchanged: " + changed);
+    	System.out.println("Reference exchanged: " + changed);
     }
 }
