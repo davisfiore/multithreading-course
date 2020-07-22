@@ -7,7 +7,7 @@ public class App {
 
 	public static void main(String[] args) throws InterruptedException {
 		
-		final List<String> ingredients = new ArrayList<String>() {
+		final List<String> ingredients = new ArrayList<>() {
 			{
 				add("cheese"); 
 				add("tomato");
