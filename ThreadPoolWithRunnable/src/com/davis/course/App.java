@@ -9,20 +9,15 @@ public class App {
 
 	private static final int NUM_THREADS = 8;
 	private static final int MAX_NUM = 1000;
-	private static final int DECIMAL = 10;	
 	
 	public static void main(String[] args) throws InterruptedException, ExecutionException {
 
 		final ExecutorService executorService = Executors.newFixedThreadPool(NUM_THREADS);
 		
 		for (int i=0; i < NUM_THREADS; i++) {
-			executorService.submit(() -> System.out.println(getRandomStrNumber(MAX_NUM).chars().map(c -> Character.digit(c, DECIMAL)).sum()));
+			executorService.submit(() -> System.out.println(ThreadLocalRandom.current().nextInt(MAX_NUM)));
 		}
 		
 		executorService.shutdown();
-	}
-	
-	private static String getRandomStrNumber(int max) {
-		return String.valueOf(ThreadLocalRandom.current().nextInt(max));
-	}
+	}	
 }

@@ -12,7 +12,6 @@ public class App {
 
 	private static final int NUM_THREADS = 8;
 	private static final int MAX_NUM = 1000;
-	private static final int DECIMAL = 10;	
 	
 	public static void main(String[] args) throws InterruptedException, ExecutionException {
 
@@ -22,7 +21,7 @@ public class App {
 		
 		for (int i=0; i < NUM_THREADS; i++) {
 			final Future<Integer> futureObj = executorService.submit(
-					() -> getRandomStrNumber(MAX_NUM).chars().map(c -> Character.digit(c, DECIMAL)).sum());
+					() -> ThreadLocalRandom.current().nextInt(MAX_NUM));
 			results.add(futureObj);
 		}
 		
@@ -31,9 +30,5 @@ public class App {
 		}
 
 		executorService.shutdown();
-	}
-	
-	private static String getRandomStrNumber(int max) {
-		return String.valueOf(ThreadLocalRandom.current().nextInt(max));
-	}
+	}	
 }
