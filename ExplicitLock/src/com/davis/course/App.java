@@ -8,7 +8,7 @@ public class App {
 	private final Lock lock = new ReentrantLock();
 	private int count;
 	
-	public static void main(String[] args) throws InterruptedException {
+	public static void main(String[] args) {
 		new App().increment();
 	}
 	
