@@ -24,14 +24,14 @@ public class StringContainer {
 
 		try {
 			while (isFull()) {
-				empty.await();
+				full.await();
 			}
 
 			values.add(str);
 			
 			System.out.println("Store string : " + str);
  
-			full.signal();
+			empty.signal();
 
 		} finally {
 			lock.unlock();
@@ -44,12 +44,12 @@ public class StringContainer {
 
 		try {
 			while (isEmpty()) {
-				full.await();
+				empty.await();
 			}
 
 			System.out.println("Removing " + values.remove());
 
-			empty.signal();
+			full.signal();
 			
 		} finally {
 			lock.unlock();
