@@ -6,27 +6,23 @@ import java.util.concurrent.locks.ReentrantLock;
 
 public class StringContainer {
 
-	private boolean isFull;
-	private String value;
-	
+	private String value;	
 	private final Lock lock = new ReentrantLock();
-	
 	private final Condition full = lock.newCondition();
 	private final Condition empty = lock.newCondition();
 
 	public void put(String str) throws InterruptedException {
+		
 		lock.lock();
 
 		try {
-			while (isFull) {
+			while (isFull()) {
 				empty.await();
 			}
 
 			value = str;
 			
 			System.out.println("Store string : " + value);
-
-			isFull = true;
  
 			full.signal();
 
@@ -36,17 +32,18 @@ public class StringContainer {
 	}
 
 	public String take() throws InterruptedException {
+		
 		lock.lock();
 
 		try {
-			while (!isFull) {
+			while (!isFull()) {
 				full.await();
 			}
 
-			System.out.println("Emptying container");
- 
-			isFull = false;
+			value = "";
 			
+			System.out.println("Emptying container");
+ 			
 			empty.signal();
 			
 		} finally {
@@ -54,5 +51,9 @@ public class StringContainer {
 		}
 		
 		return value;
+	}
+	
+	private boolean isFull() {
+		return value != null && !value.equals("");
 	}
 }
