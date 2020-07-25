@@ -11,7 +11,7 @@ public class StringContainer {
 	private final Condition full = lock.newCondition();
 	private final Condition empty = lock.newCondition();
 
-	public void put(String str) throws InterruptedException {
+	public void add(String str) throws InterruptedException {
 		
 		lock.lock();
 
@@ -31,7 +31,7 @@ public class StringContainer {
 		}
 	}
 
-	public String take() throws InterruptedException {
+	public void remove() throws InterruptedException {
 
 		lock.lock();
 
@@ -39,18 +39,16 @@ public class StringContainer {
 			while (!isFull()) {
 				full.await();
 			}
+			
+			System.out.println("Removing " + value);
 
 			value = "";
-			
-			System.out.println("Emptying container");
- 			
+
 			empty.signal();
 			
 		} finally {
 			lock.unlock();
 		}
-		
-		return value;
 	}
 	
 	private boolean isFull() {
