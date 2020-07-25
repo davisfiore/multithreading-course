@@ -32,7 +32,7 @@ public class StringContainer {
 	}
 
 	public String take() throws InterruptedException {
-		
+
 		lock.lock();
 
 		try {
