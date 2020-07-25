@@ -7,25 +7,23 @@ public class App {
 	
 	public static void main(String[] args) {
 
-		final StringContainer container = new StringContainer();		
+		final StringContainer container = new StringContainer(3);		
 		final ExecutorService es = Executors.newFixedThreadPool(2);
 
 		es.submit(() -> {
-				try {
-					container.put("First");
-					container.put("Second");
-					container.put("Third");
-				} catch (InterruptedException e) {e.printStackTrace();}
-			}    		
-		);
+			try {
+				for(int i = 1; i < 10; i++) {
+						container.add(String.valueOf(i));
+				}
+			} catch (InterruptedException e) {e.printStackTrace();}				
+		});
 		
 		es.submit(() -> {
-				try {
-					container.take();
-					container.take();
-					container.take();		
-				} catch (InterruptedException e) {e.printStackTrace();}
-			}    		
-		);
+			try {
+				for(int i = 1; i < 10; i++) {
+					container.remove();
+				}	
+			} catch (InterruptedException e) {e.printStackTrace();}				
+		});
 	}
 }

@@ -1,16 +1,23 @@
 package com.davis.course;
 
+import java.util.LinkedList;
+import java.util.Queue;
 import java.util.concurrent.locks.Condition;
 import java.util.concurrent.locks.Lock;
 import java.util.concurrent.locks.ReentrantLock;
 
 public class StringContainer {
 
-	private String value;	
+	private final Queue<String> values = new LinkedList<>();
+	private final int size;
 	private final Lock lock = new ReentrantLock();
 	private final Condition full = lock.newCondition();
 	private final Condition empty = lock.newCondition();
 
+	public StringContainer(int size) {
+		this.size = size;
+	}
+	
 	public void add(String str) throws InterruptedException {
 		
 		lock.lock();
@@ -20,9 +27,9 @@ public class StringContainer {
 				empty.await();
 			}
 
-			value = str;
+			values.add(str);
 			
-			System.out.println("Store string : " + value);
+			System.out.println("Store string : " + str);
  
 			full.signal();
 
@@ -36,13 +43,11 @@ public class StringContainer {
 		lock.lock();
 
 		try {
-			while (!isFull()) {
+			while (isEmpty()) {
 				full.await();
 			}
-			
-			System.out.println("Removing " + value);
 
-			value = "";
+			System.out.println("Removing " + values.remove());
 
 			empty.signal();
 			
@@ -52,6 +57,10 @@ public class StringContainer {
 	}
 	
 	private boolean isFull() {
-		return value != null && !value.equals("");
+		return values.size() >= size;
 	}
+	
+	private boolean isEmpty() {
+		return values.isEmpty();
+	}	
 }
