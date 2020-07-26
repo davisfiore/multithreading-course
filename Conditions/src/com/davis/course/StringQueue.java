@@ -8,7 +8,7 @@ import java.util.concurrent.locks.ReentrantLock;
 
 public class StringQueue {
 
-	private final Queue<String> values = new LinkedList<>();
+	private final Queue<String> queue = new LinkedList<>();
 	private final int maxSize;
 	private final Lock lock = new ReentrantLock();
 	
@@ -31,7 +31,7 @@ public class StringQueue {
 				nonFull.await();
 			}
 
-			values.add(str);
+			queue.add(str);
 			
 			System.out.println("Store string : " + str);
  
@@ -51,7 +51,7 @@ public class StringQueue {
 				nonEmpty.await();
 			}
 
-			System.out.println("Removing " + values.remove());
+			System.out.println("Removing " + queue.remove());
 
 			nonFull.signal();
 			
@@ -61,10 +61,10 @@ public class StringQueue {
 	}
 	
 	private boolean isFull() {
-		return values.size() >= maxSize;
+		return queue.size() >= maxSize;
 	}
 	
 	private boolean isEmpty() {
-		return values.isEmpty();
+		return queue.isEmpty();
 	}	
 }

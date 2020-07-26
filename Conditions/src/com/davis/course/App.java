@@ -10,13 +10,13 @@ public class App {
 	
 	public static void main(String[] args) {
 
-		final StringQueue container = new StringQueue(BUFFER_SIZE);		
+		final StringQueue queue = new StringQueue(BUFFER_SIZE);		
 		final ExecutorService es = Executors.newFixedThreadPool(NUM_THREADS);
 
 		es.submit(() -> {
 			try {
 				for(int i = 1; i < 10; i++) {
-						container.add(String.valueOf(i));
+						queue.add(String.valueOf(i));
 				}
 			} catch (InterruptedException e) {e.printStackTrace();}				
 		});
@@ -24,7 +24,7 @@ public class App {
 		es.submit(() -> {
 			try {
 				for(int i = 1; i < 10; i++) {
-					container.remove();
+					queue.remove();
 				}	
 			} catch (InterruptedException e) {e.printStackTrace();}				
 		});
