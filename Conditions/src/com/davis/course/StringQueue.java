@@ -6,7 +6,7 @@ import java.util.concurrent.locks.Condition;
 import java.util.concurrent.locks.Lock;
 import java.util.concurrent.locks.ReentrantLock;
 
-public class StringContainer {
+public class StringQueue {
 
 	private final Queue<String> values = new LinkedList<>();
 	private final int maxSize;
@@ -18,7 +18,7 @@ public class StringContainer {
 	// Condition predicate: non empty (size > 0)
 	private final Condition nonEmpty = lock.newCondition();
 
-	public StringContainer(final int maxSize) {
+	public StringQueue(final int maxSize) {
 		this.maxSize = maxSize;
 	}
 	

@@ -10,7 +10,7 @@ public class App {
 	
 	public static void main(String[] args) {
 
-		final StringContainer container = new StringContainer(BUFFER_SIZE);		
+		final StringQueue container = new StringQueue(BUFFER_SIZE);		
 		final ExecutorService es = Executors.newFixedThreadPool(NUM_THREADS);
 
 		es.submit(() -> {
