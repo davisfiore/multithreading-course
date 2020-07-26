@@ -9,13 +9,17 @@ import java.util.concurrent.locks.ReentrantLock;
 public class StringContainer {
 
 	private final Queue<String> values = new LinkedList<>();
-	private final int size;
+	private final int maxSize;
 	private final Lock lock = new ReentrantLock();
-	private final Condition full = lock.newCondition();
-	private final Condition empty = lock.newCondition();
+	
+	// Condition predicate: non full (size < maxSize)
+	private final Condition nonFull = lock.newCondition();
 
-	public StringContainer(final int size) {
-		this.size = size;
+	// Condition predicate: non empty (size > 0)
+	private final Condition nonEmpty = lock.newCondition();
+
+	public StringContainer(final int maxSize) {
+		this.maxSize = maxSize;
 	}
 	
 	public void add(final String str) throws InterruptedException {
@@ -24,14 +28,14 @@ public class StringContainer {
 
 		try {
 			while (isFull()) {
-				full.await();
+				nonFull.await();
 			}
 
 			values.add(str);
 			
 			System.out.println("Store string : " + str);
  
-			empty.signal();
+			nonEmpty.signal();
 
 		} finally {
 			lock.unlock();
@@ -44,12 +48,12 @@ public class StringContainer {
 
 		try {
 			while (isEmpty()) {
-				empty.await();
+				nonEmpty.await();
 			}
 
 			System.out.println("Removing " + values.remove());
 
-			full.signal();
+			nonFull.signal();
 			
 		} finally {
 			lock.unlock();
@@ -57,7 +61,7 @@ public class StringContainer {
 	}
 	
 	private boolean isFull() {
-		return values.size() >= size;
+		return values.size() >= maxSize;
 	}
 	
 	private boolean isEmpty() {

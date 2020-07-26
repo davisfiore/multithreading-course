@@ -5,10 +5,13 @@ import java.util.concurrent.Executors;
 
 public class App {
 	
+	private static final int BUFFER_SIZE = 3;
+	private static final int NUM_THREADS = 2;
+	
 	public static void main(String[] args) {
 
-		final StringContainer container = new StringContainer(3);		
-		final ExecutorService es = Executors.newFixedThreadPool(2);
+		final StringContainer container = new StringContainer(BUFFER_SIZE);		
+		final ExecutorService es = Executors.newFixedThreadPool(NUM_THREADS);
 
 		es.submit(() -> {
 			try {
