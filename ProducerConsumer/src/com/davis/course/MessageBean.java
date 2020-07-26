@@ -7,7 +7,7 @@ public class MessageBean {
 		return m;
 	}
 
-	public synchronized void set(String m) {
+	public synchronized void set(final String m) {
 		this.m = m;
 	}
 }

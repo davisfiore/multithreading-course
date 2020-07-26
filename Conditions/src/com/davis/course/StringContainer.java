@@ -14,11 +14,11 @@ public class StringContainer {
 	private final Condition full = lock.newCondition();
 	private final Condition empty = lock.newCondition();
 
-	public StringContainer(int size) {
+	public StringContainer(final int size) {
 		this.size = size;
 	}
 	
-	public void add(String str) throws InterruptedException {
+	public void add(final String str) throws InterruptedException {
 		
 		lock.lock();
 

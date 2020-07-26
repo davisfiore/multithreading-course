@@ -4,7 +4,7 @@ public class MyThread extends Thread {
 
 	private final int id;
 	
-	public MyThread(int id) {
+	public MyThread(final int id) {
 		this.id = id;
 	}
 	

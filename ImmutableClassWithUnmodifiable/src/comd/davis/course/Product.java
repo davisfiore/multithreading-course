@@ -10,7 +10,7 @@ public final class Product {
 	private final int code;
 	private final List<String> ingredients;
 
-	public Product(String name, int code, List<String> ingredients) {
+	public Product(final String name, final int code, final List<String> ingredients) {
 		this.name = name;
 		this.code = code;
 		this.ingredients = new ArrayList<String>(ingredients);
