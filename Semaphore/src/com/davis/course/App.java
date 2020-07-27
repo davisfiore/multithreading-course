@@ -21,7 +21,7 @@ public class App {
 					sem.acquire();
 					final int currCount = counter.incrementAndGet();
 					
-					System.out.println("The current number of thread " +
+					System.out.println("The current number of threads " +
 							"Accessing the resource is " + currCount);
 	
 					counter.decrementAndGet();
