@@ -5,11 +5,11 @@ import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 
 public class App {
-	
-	private static final Exchanger<String> exchanger = new Exchanger<>();
-	
-	public static void main(String[] args) {
 		
+	public static void main(String[] args) {
+	
+		final Exchanger<String> exchanger = new Exchanger<>();
+
 		final ExecutorService executorService = Executors.newFixedThreadPool(2);
 		
 		for (int i = 0; i < 2; i++)

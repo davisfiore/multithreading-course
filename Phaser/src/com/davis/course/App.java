@@ -5,11 +5,11 @@ import java.util.concurrent.Executors;
 import java.util.concurrent.Phaser;
 
 public class App {
-	
-	private static final Phaser phaser = new Phaser();
-	
-	public static void main(String[] args) {
 		
+	public static void main(String[] args) {
+	
+		final Phaser phaser = new Phaser();
+
 		final ExecutorService executorService = Executors.newFixedThreadPool(3);
 		
 		for (int i = 0; i < 3; i++)

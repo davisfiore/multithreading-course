@@ -6,12 +6,13 @@ import java.util.concurrent.Semaphore;
 import java.util.concurrent.atomic.AtomicInteger;
 
 public class App {
-	
-	private static final AtomicInteger counter = new AtomicInteger(0);
-	private static final Semaphore sem = new Semaphore(3);
-	
-	public static void main(String[] args) {
 		
+	public static void main(String[] args) {
+	
+		final AtomicInteger counter = new AtomicInteger(0);
+		
+		final Semaphore sem = new Semaphore(3);
+
 		final ExecutorService executorService = Executors.newFixedThreadPool(100);
 		
 		for (int i = 0; i < 100; i++)

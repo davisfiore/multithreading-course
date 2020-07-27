@@ -7,10 +7,11 @@ import java.util.concurrent.Executors;
 public class App {
 	
 	private static final int NUM_THREADS = 10;
-	private static final CountDownLatch cdl = new CountDownLatch(NUM_THREADS);
 	
 	public static void main(String[] args) throws InterruptedException {
 		
+		final CountDownLatch cdl = new CountDownLatch(NUM_THREADS);
+
 		final ExecutorService executorService = Executors.newFixedThreadPool(NUM_THREADS);
 		
 		for (int i = 0; i < NUM_THREADS; i++)
