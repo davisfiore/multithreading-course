@@ -19,10 +19,9 @@ public class App {
 			executorService.submit(() -> {
 				try {
 					sem.acquire();
-					final int currCount = counter.incrementAndGet();
 					
 					System.out.println("The current number of threads " +
-							"Accessing the resource is " + currCount);
+							"Accessing the resource is " + counter.incrementAndGet());
 	
 					counter.decrementAndGet();
 					sem.release();
