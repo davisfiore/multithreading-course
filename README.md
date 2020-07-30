@@ -13,8 +13,8 @@ To run these projects you need to have a recent version of Eclipse.
 
 * **Section 2: Introduction to multithreading**
 
-      * **ThreadCreation**
-      * **ThreadsTiming**
+     * **ThreadCreation**
+     * **ThreadsTiming**
 
 Section 3: Using synchronization
 
