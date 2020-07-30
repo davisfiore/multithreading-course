@@ -21,7 +21,7 @@ To run these projects you need to have a recent version of Eclipse.
      * **SynchronizationPart1**
      * **SynchronizationPart2**
 
-* **Section 4: Using the volatile keyword* **
+* **Section 4: Using the volatile keyword**
 
      * **Volatile**
 
