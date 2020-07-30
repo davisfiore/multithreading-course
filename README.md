@@ -16,72 +16,72 @@ To run these projects you need to have a recent version of Eclipse.
      * **ThreadCreation**
      * **ThreadsTiming**
 
-Section 3: Using synchronization
+* **Section 3: Using synchronization**
 
-SynchronizationPart1
-SynchronizationPart2
+     * **SynchronizationPart1**
+     * **SynchronizationPart2**
 
-Section 4: Using the volatile keyword
+* **Section 4: Using the volatile keyword* **
 
-Volatile
+     * **Volatile**
 
-Section 5: Managing threads
+* **Section 5: Managing threads**
 
-Join
-ProducerConsumer
-Interrupt
-InterruptWithThrow
+     * **Join**
+     * **ProducerConsumer**
+     * **Interrupt**
+     * **InterruptWithThrow**
 
-Section 6: Writing immutable classes
+* **Section 6: Writing immutable classes**
 
-ImmutableClass
-ImmutableClassWithUnmodifiable
+     * **ImmutableClass**
+     * **ImmutableClassWithUnmodifiable**
 
-Section 7: Using atomic variables
+* **Section 7: Using atomic variables**
 
-AtomicVariables
+     * **AtomicVariables**
 
-Section 8: Dealing with liveness failures
+* **Section 8: Dealing with liveness failures**
 
-Deadlock
+     * **Deadlock**
 
-Section 9: Using concurrent collections
+* **Section 9: Using concurrent collections**
 
-BlockingQueue
+     * **BlockingQueue**
 
-Section 10: Working with thread pools
+* **Section 10: Working with thread pools**
 
-ThreadPoolWithCallable
-ThreadPoolWithRunnable
+     * **ThreadPoolWithCallable**
+     * **ThreadPoolWithRunnable**
 
-Section 11: Using explicit locks
+* **Section 11: Using explicit locks**
 
-ExplicitLock
-Reentrancy
+     * **ExplicitLock**
+     * **Reentrancy**
 
-Section 12: Using conditions
+* **Section 12: Using conditions**
 
-Conditions
+     * **Conditions**
 
-Section 13: Using ThreadLocal variables
+* **Section 13: Using ThreadLocal variables**
 
-ThreadLocal
+     * **ThreadLocal**
 
-Section 14: Working with Synchronizers
+* **Section 14: Working with Synchronizers**
 
-CountdownLatch
-CyclicBarrier
-Exchanger
-Phaser
-Semaphore
+     * **CountdownLatch**
+     * **CyclicBarrier**
+     * **Exchanger**
+     * **Phaser**
+     * **Semaphore**
 
-Section 15: Taking advantage of parallel computing
+* **Section 15: Taking advantage of parallel computing**
 
-ParallelStream1
-ParallelStream2
-ForkJoin
+     * **ParallelStream1**
+     * **ParallelStream2**
+     * **ForkJoin**
 
-Section 16: Congratulations
+* **Section 16: Congratulations**
 
 
 ## Authors
